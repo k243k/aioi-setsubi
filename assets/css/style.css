@@ -806,3 +806,123 @@ img{max-width:100%; display:block}
   .band{min-height:0; padding:56px 0}
   .band__inner{padding-bottom:0}
 }
+
+/* =========================================================
+   v7 — 参照サイト型の構成移植（opening / パララックス列 /
+   カード / CTA帯 / 代表ティザー / 画像ストリップ / 固定CTA）
+   ========================================================= */
+/* ローディング画面 */
+.opening{
+  position:fixed; inset:0; z-index:200; background:var(--paper);
+  display:flex; align-items:center; justify-content:center;
+  transition:transform .7s cubic-bezier(.7,0,.2,1);
+}
+.opening__logo{
+  font-weight:700; font-size:clamp(34px,5vw,56px); letter-spacing:.02em;
+  opacity:0; transform:translateY(14px);
+  animation:rise .7s .15s cubic-bezier(.2,.6,.2,1) forwards;
+}
+.opening__logo i{font-style:normal; color:var(--steel)}
+.opening.is-done{transform:translateY(-100%)}
+.opening.is-done .opening__logo{opacity:0; transition:opacity .3s}
+html.is-opening{overflow:hidden}
+
+/* 右下固定CTA */
+.float-cta{
+  position:fixed; right:22px; bottom:22px; z-index:90;
+  background:var(--graphite); color:var(--paper);
+  font-size:12px; letter-spacing:.14em; padding:15px 26px;
+  box-shadow:0 8px 28px rgba(36,36,36,.28);
+  transition:background .25s,color .25s,transform .25s;
+}
+.float-cta:hover{background:var(--steel); color:var(--graphite); transform:translateY(-2px)}
+
+/* STATEMENT + パララックス画像列 */
+.stmt{overflow:hidden; padding:clamp(60px,9vh,110px) var(--pad) clamp(30px,4vh,50px)}
+.stmt__body{max-width:760px}
+.stmt__body h2{
+  margin-top:20px; font-family:var(--min); font-weight:800;
+  font-size:clamp(26px,3.3vw,46px); line-height:1.65; letter-spacing:.06em;
+}
+.stmt__body h2 i{font-style:normal; color:var(--steel)}
+.stmt__body p{margin-top:16px; font-size:12.5px; line-height:2; color:var(--ink-60); max-width:44em}
+.stmt__cols{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,28px);
+  margin-top:clamp(72px,10vh,110px); align-items:start;
+}
+.stmt__col{display:flex; flex-direction:column; gap:clamp(14px,2vw,28px); will-change:transform}
+.stmt__col:nth-child(2){margin-top:60px}
+.stmt__col:nth-child(3){margin-top:26px}
+.stmt__col figure{margin:0; aspect-ratio:4/5}
+.stmt__col img{width:100%; height:100%; object-fit:cover}
+
+/* SYSTEMS カード */
+.syscards{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(18px,2.4vw,34px);
+  padding:clamp(28px,4vh,48px) 0 clamp(44px,6vh,72px);
+}
+.syscard figure{margin:0; aspect-ratio:4/3; overflow:hidden}
+.syscard img{width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.syscard:hover img{transform:scale(1.05)}
+.syscard__tx{padding-top:18px}
+.syscard__tx .no{font-size:11px; letter-spacing:.2em; color:var(--ink-60)}
+.syscard__tx b{
+  display:block; margin-top:10px; font-weight:600;
+  font-size:clamp(21px,1.9vw,27px); line-height:1.2; letter-spacing:.02em;
+}
+.syscard__tx .jp{display:block; margin-top:8px; font-size:11.5px; letter-spacing:.26em; color:var(--ink-60)}
+.syscard__tx p{margin-top:14px; font-size:12.5px; line-height:2; color:var(--ink-60)}
+
+/* CTA帯 */
+.ctaband{background:var(--graphite); color:var(--paper); margin:clamp(20px,3vh,40px) 0 0}
+.ctaband__inner{
+  display:flex; align-items:center; justify-content:center; gap:clamp(24px,4vw,54px);
+  flex-wrap:wrap; padding:clamp(44px,6vh,72px) var(--pad);
+}
+.ctaband__btn{
+  background:var(--paper); color:var(--graphite);
+  font-size:13px; font-weight:600; letter-spacing:.14em; padding:20px 54px;
+  transition:background .25s,color .25s;
+}
+.ctaband__btn:hover{background:var(--steel)}
+.ctaband__tel{font-size:14px; letter-spacing:.12em; color:var(--paper-60)}
+
+/* 代表ティザー（つくる人型） */
+.people{padding-bottom:clamp(44px,6vh,72px)}
+.people__inner{
+  display:grid; grid-template-columns:minmax(0,2fr) minmax(0,3fr); gap:clamp(30px,5vw,70px);
+  align-items:center; padding-top:clamp(28px,4vh,48px);
+}
+.people__ph{margin:0; aspect-ratio:4/3}
+.people__tx h3{font-weight:600; font-size:clamp(22px,2.4vw,32px); letter-spacing:.08em; line-height:1.8}
+.people__name{margin-top:20px; font-size:13px; letter-spacing:.14em}
+.people__tx p:last-child{margin-top:18px; font-size:12.5px}
+
+/* 画像オートストリップ（CAREERS黒帯下部） */
+.strip{overflow:hidden; padding-bottom:clamp(44px,6vh,64px)}
+.strip__track{
+  display:flex; gap:18px; width:max-content;
+  animation:stripmove 46s linear infinite;
+}
+.strip img{
+  width:clamp(200px,24vw,330px); aspect-ratio:4/3; object-fit:cover;
+  filter:grayscale(1) contrast(1.05) brightness(.9);
+}
+@keyframes stripmove{to{transform:translateX(-50%)}}
+
+@media (max-width:1080px){
+  .people__inner{grid-template-columns:1fr; gap:26px}
+}
+@media (max-width:760px){
+  .stmt__cols{gap:10px; margin-top:30px}
+  .stmt__col{gap:10px}
+  .stmt__col:nth-child(2){margin-top:34px}
+  .syscards{grid-template-columns:1fr; gap:34px}
+  .float-cta{right:14px; bottom:14px; padding:13px 20px; font-size:11px}
+  .ctaband__btn{padding:17px 38px}
+  .strip img{width:56vw}
+}
+@media (prefers-reduced-motion:reduce){
+  .strip__track{animation:none}
+  .opening{display:none}
+}

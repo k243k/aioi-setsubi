@@ -5,7 +5,8 @@
   /* ---- スクロール連動リビール ---- */
   var SELECTORS = [
     '.sec__head', '.sysrow', '.pos__text', '.pos__cols .diagram',
-    '.band__inner', '.company__cols > *', '.careers__inner > *',
+    '.stmt__body', '.syscard', '.ctaband__inner', '.people__inner > *',
+    '.company__cols > *', '.careers__inner > *',
     '.contact__inner > *', '.envrow', '.day-item', '.day .photo',
     '.yoko .ctable', '.yoko__cta'
   ];
@@ -54,6 +55,51 @@
       });
     }, { threshold: 0.6 });
     counters.forEach(function (el) { cio.observe(el); });
+  }
+
+  /* ---- ローディング画面: ロゴ表示後にリフトアウト ---- */
+  var opening = document.getElementById('opening');
+  if (opening) {
+    document.documentElement.classList.add('is-opening');
+    var closeOpening = function () {
+      opening.classList.add('is-done');
+      document.documentElement.classList.remove('is-opening');
+      setTimeout(function () { opening.remove(); }, 800);
+    };
+    /* ロゴのriseアニメ(0.85s)を見せてから閉じる。読み込みが遅くても最大2.4sで開く */
+    var t0 = performance.now();
+    var minWait = 1150;
+    var done = false;
+    var tryClose = function () {
+      if (done) return;
+      done = true;
+      var rest = Math.max(0, minWait - (performance.now() - t0));
+      setTimeout(closeOpening, rest);
+    };
+    if (document.readyState === 'complete') tryClose();
+    else window.addEventListener('load', tryClose);
+    setTimeout(tryClose, 2400);
+  }
+
+  /* ---- STATEMENT画像列: スクロール連動の異速パララックス ---- */
+  var cols = document.querySelectorAll('.stmt__col');
+  if (cols.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var ticking = false;
+    var applyParallax = function () {
+      ticking = false;
+      var vh = window.innerHeight;
+      cols.forEach(function (col) {
+        var r = col.parentElement.getBoundingClientRect();
+        var delta = (r.top + r.height / 2) - vh / 2;
+        var speed = parseFloat(col.getAttribute('data-speed')) || -0.1;
+        var ty = Math.max(-64, Math.min(64, delta * speed)); /* 見出しへの被り防止 */
+        col.style.transform = 'translateY(' + ty.toFixed(1) + 'px)';
+      });
+    };
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(applyParallax); }
+    }, { passive: true });
+    applyParallax();
   }
 
   /* ---- FVのBIMモデル: マウスパララックス（微小な奥行き） ---- */

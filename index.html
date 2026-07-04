@@ -13,6 +13,12 @@
 </head>
 <body>
 
+<div class="opening" id="opening" aria-hidden="true">
+  <span class="opening__logo en">AIOI<i>.</i></span>
+</div>
+
+<a class="float-cta" href="contact.html">設計・施工図のご相談</a>
+
 <header class="site-header">
   <a class="brand" href="index.html">
     <span class="brand__mark en">AIOI<i>.</i></span>
@@ -66,36 +72,72 @@
   </div>
 </section>
 
+<!-- ============ STATEMENT + パララックス画像列（感情コピーはここだけ） ============ -->
+<section class="stmt">
+  <div class="stmt__body">
+    <span class="lbl">Public facilities</span>
+    <h2>図面の<i>一本の線</i>が、<br>子どもたちの教室の空気になる。</h2>
+    <p>教室の空調、手洗い場の給排水、体育館の換気。学校をはじめとする公共施設の設備を、図面から支える。</p>
+  </div>
+  <div class="stmt__cols" aria-hidden="true">
+    <div class="stmt__col" data-speed="-0.10">
+      <figure class="duo"><img src="assets/img/drafting-hands.jpg" alt="" loading="lazy"></figure>
+      <figure class="duo"><img src="assets/img/joyo-street.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="stmt__col" data-speed="-0.22">
+      <figure class="duo"><img src="assets/img/school-gym.jpg" alt="" loading="lazy"></figure>
+      <figure class="duo"><img src="assets/img/window-desk.jpg" alt="" loading="lazy"></figure>
+    </div>
+    <div class="stmt__col" data-speed="-0.15">
+      <figure class="duo"><img src="assets/img/dusk-street.jpg" alt="" loading="lazy"></figure>
+      <figure class="duo"><img src="assets/img/cad-desk.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ SYSTEMS ============ -->
 <section class="sec" id="systems">
   <div class="sec__head">
     <span class="lbl">Building systems</span>
   </div>
-  <div class="sysrow">
-    <span class="no">01</span>
-    <div class="name">
-      <b>Air conditioning</b>
-      <span>空気調和設備</span>
-    </div>
-    <p class="desc">熱負荷・用途・運用条件を踏まえた、空調設備の計画・設計。</p>
-  </div>
-  <div class="sysrow">
-    <span class="no">02</span>
-    <div class="name">
-      <b>Ventilation</b>
-      <span>換気設備</span>
-    </div>
-    <p class="desc">必要換気量と給排気バランスを踏まえた、換気設備の計画・設計。</p>
-  </div>
-  <div class="sysrow">
-    <span class="no">03</span>
-    <div class="name">
-      <b>Plumbing &amp; sanitary</b>
-      <span>給排水衛生設備</span>
-    </div>
-    <p class="desc">給水・排水・衛生器具を含む、給排水衛生設備の計画・設計。</p>
+  <div class="syscards">
+    <article class="syscard">
+      <figure class="duo"><img src="assets/img/school-gym.jpg" alt="" loading="lazy"></figure>
+      <div class="syscard__tx">
+        <span class="no">01</span>
+        <b>Air conditioning</b>
+        <span class="jp">空気調和設備</span>
+        <p>熱負荷・用途・運用条件を踏まえた、空調設備の計画・設計。</p>
+      </div>
+    </article>
+    <article class="syscard">
+      <figure class="duo"><img src="assets/img/bim-model.jpg" alt="" loading="lazy"></figure>
+      <div class="syscard__tx">
+        <span class="no">02</span>
+        <b>Ventilation</b>
+        <span class="jp">換気設備</span>
+        <p>必要換気量と給排気バランスを踏まえた、換気設備の計画・設計。</p>
+      </div>
+    </article>
+    <article class="syscard">
+      <figure class="duo"><img src="assets/img/cad-desk.jpg" alt="" loading="lazy"></figure>
+      <div class="syscard__tx">
+        <span class="no">03</span>
+        <b>Plumbing &amp; sanitary</b>
+        <span class="jp">給排水衛生設備</span>
+        <p>給水・排水・衛生器具を含む、給排水衛生設備の計画・設計。</p>
+      </div>
+    </article>
   </div>
 </section>
+
+<!-- ============ CTA ============ -->
+<div class="ctaband">
+  <div class="ctaband__inner">
+    <a class="ctaband__btn" href="contact.html">設計・施工図のご相談</a>
+    <span class="ctaband__tel en">TEL 0774-56-6440</span>
+  </div>
+</div>
 
 <!-- ============ PROCESS ============ -->
 <section class="sec pos" id="process">
@@ -130,15 +172,6 @@
   </div>
 </section>
 
-<!-- ============ FEATURED SECTOR（感情コピーはサイトでここだけ） ============ -->
-<section class="band">
-  <div class="band__inner">
-    <span class="lbl">Public facilities</span>
-    <h2>図面の<i>一本の線</i>が、<br>子どもたちの教室の空気になる。</h2>
-    <p>教室の空調、手洗い場の給排水、体育館の換気。学校をはじめとする公共施設の設備を、図面から支える。</p>
-  </div>
-</section>
-
 <!-- ============ COMPANY ============ -->
 <section class="sec company" id="company">
   <div class="sec__head">
@@ -169,6 +202,21 @@
   </div>
 </section>
 
+<!-- ============ MESSAGE（つくる人） ============ -->
+<section class="sec people">
+  <div class="sec__head">
+    <span class="lbl">Message</span>
+  </div>
+  <div class="people__inner">
+    <figure class="duo people__ph"><img src="assets/img/window-desk.jpg" alt="" loading="lazy"></figure>
+    <div class="people__tx">
+      <h3>見えなくなる部分にこそ、<br>技術を尽くす。</h3>
+      <p class="people__name">代表取締役　相生 哲男</p>
+      <p><a class="tx-link" href="message.html">代表挨拶を読む →</a></p>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CAREERS ============ -->
 <section class="sec careers dark">
   <div class="sec__head">
@@ -183,6 +231,11 @@
         <div><b>転勤なし</b><span>拠点は京都・城陽</span></div>
       </div>
       <p class="careers__link"><a href="recruit.html" class="tx-link">CADオペレーター採用情報 →</a></p>
+    </div>
+  </div>
+  <div class="strip" aria-hidden="true">
+    <div class="strip__track">
+      <img src="assets/img/drafting-hands.jpg" alt="" loading="lazy"><img src="assets/img/window-desk.jpg" alt="" loading="lazy"><img src="assets/img/cad-desk.jpg" alt="" loading="lazy"><img src="assets/img/dusk-street.jpg" alt="" loading="lazy"><img src="assets/img/joyo-street.jpg" alt="" loading="lazy"><img src="assets/img/drafting-hands.jpg" alt="" loading="lazy"><img src="assets/img/window-desk.jpg" alt="" loading="lazy"><img src="assets/img/cad-desk.jpg" alt="" loading="lazy"><img src="assets/img/dusk-street.jpg" alt="" loading="lazy"><img src="assets/img/joyo-street.jpg" alt="" loading="lazy">
     </div>
   </div>
 </section>
