@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>相生設備事務所株式会社｜建築設備設計・施工図作成（京都・城陽）</title>
+<meta name="description" content="空調・換気・給排水衛生設備を中心に、BIM/CAD技術（T-fas / Rebro）を活用した建築設備設計・施工図作成を行う京都・城陽のエンジニアリングチーム。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23242424%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial Black%27 font-size=%2716%27 font-weight=%27900%27 fill=%27%23f3f0e8%27 text-anchor=%27middle%27%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__mark en">AIOI<i>.</i></span>
+    <span class="brand__jp">相生設備事務所株式会社</span>
+  </a>
+  <nav class="gnav">
+    <a href="#systems">SYSTEMS</a>
+    <a href="#process">PROCESS</a>
+    <a href="company.html">COMPANY</a>
+    <a href="recruit.html">CAREERS</a>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+  <button class="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============ FV（一枚の3D空間 + 重なるコピー） ============ -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true">
+    <img src="assets/img/bim-model.jpg" alt="" id="bimModel">
+    <script>
+      /* WebGL可なら静止画フォールバックを即時非表示（粒子ロード中のチラ見え防止）。
+         初期化失敗時は particles.js が復帰させる。JS無効時はこのまま表示。 */
+      (function () {
+        try {
+          var c = document.createElement('canvas');
+          if (c.getContext('webgl2') || c.getContext('webgl'))
+            document.getElementById('bimModel').style.opacity = '0';
+        } catch (e) {}
+      })();
+    </script>
+  </div>
+  <div class="hero__grade" aria-hidden="true"></div>
+
+  <div class="hero__copy">
+    <div class="hero__meta">
+      <span>KYOTO — JOYO</span><span>EST. 2019</span>
+    </div>
+    <h1 class="hero__title">
+      <span class="line"><span>建築の内側を、</span></span>
+      <span class="line"><span><em>設計する。</em></span></span>
+    </h1>
+    <p class="hero__desc">空調・換気・給排水衛生設備の設計から、施工図作成、各種調整まで。京都・城陽を拠点に、建築設備の図面技術でプロジェクトを支えます。</p>
+    <div class="hero__links">
+      <a href="contact.html">設計・施工図のご相談</a>
+      <a href="recruit.html">採用情報 →</a>
+    </div>
+  </div>
+
+  <div class="layers" aria-hidden="true">
+    <span>FLOW</span><span>MEP SYSTEM</span><span>INSIDE BUILDING</span>
+  </div>
+</section>
+
+<!-- ============ SYSTEMS ============ -->
+<section class="sec" id="systems">
+  <div class="sec__head">
+    <span class="lbl">Building systems</span>
+  </div>
+  <div class="sysrow">
+    <span class="no">01</span>
+    <div class="name">
+      <b>Air conditioning</b>
+      <span>空気調和設備</span>
+    </div>
+    <p class="desc">熱負荷・用途・運用条件を踏まえた、空調設備の計画・設計。</p>
+  </div>
+  <div class="sysrow">
+    <span class="no">02</span>
+    <div class="name">
+      <b>Ventilation</b>
+      <span>換気設備</span>
+    </div>
+    <p class="desc">必要換気量と給排気バランスを踏まえた、換気設備の計画・設計。</p>
+  </div>
+  <div class="sysrow">
+    <span class="no">03</span>
+    <div class="name">
+      <b>Plumbing &amp; sanitary</b>
+      <span>給排水衛生設備</span>
+    </div>
+    <p class="desc">給水・排水・衛生器具を含む、給排水衛生設備の計画・設計。</p>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec pos" id="process">
+  <div class="sec__head">
+    <span class="lbl">Process</span>
+  </div>
+  <div class="pos__cols">
+    <div class="pos__text">
+      <h3>設計から、<br>現場で使われる図面まで。</h3>
+      <p>設計図を描いて終わりにしない。躯体・意匠・他設備との取り合いを調整し、現場がそのまま施工できる図面までを責任範囲とします。</p>
+      <div class="pos__list">
+        <div><b>DES.</b><span>設計図の作成 — 空調・換気・給排水衛生の各系統</span></div>
+        <div><b>SHOP</b><span>施工図の作成 — 取り合い調整、現場で使える図面へ</span></div>
+        <div><b>DOC.</b><span>資料整理 — 機器表・系統図・各種資料</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="diagram">
+        <div class="diagram__row"><div class="diagram__node">建築設計事務所</div></div>
+        <div class="diagram__wire-v"></div>
+        <div class="diagram__row">
+          <div class="diagram__node">ゼネコン・サブコン</div>
+          <div class="diagram__wire-h rev"></div>
+          <div class="diagram__node diagram__node--main">相生設備事務所<small>Building services design</small></div>
+          <div class="diagram__wire-h"></div>
+          <div class="diagram__node">機器メーカー</div>
+        </div>
+        <div class="diagram__wire-v"></div>
+        <div class="diagram__row"><div class="diagram__node">現場（施工）</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED SECTOR（感情コピーはサイトでここだけ） ============ -->
+<section class="band">
+  <div class="band__inner">
+    <span class="lbl">Public facilities</span>
+    <h2>図面の<i>一本の線</i>が、<br>子どもたちの教室の空気になる。</h2>
+    <p>教室の空調、手洗い場の給排水、体育館の換気。学校をはじめとする公共施設の設備を、図面から支える。</p>
+  </div>
+</section>
+
+<!-- ============ COMPANY ============ -->
+<section class="sec company" id="company">
+  <div class="sec__head">
+    <span class="lbl">Company</span>
+  </div>
+  <div class="company__cols">
+    <div>
+      <p class="company__base">Based in Joyo, Kyoto<br>Est. 2019</p>
+      <div class="company__exp">
+        <span class="lbl">Industry experience</span>
+        <p>京都設備事務所協会 副会長・事業委員会委員長等を歴任（2022〜2024年期）</p>
+      </div>
+      <p class="company__note" style="margin-top:20px"><a href="company.html" class="tx-link">会社概要・アクセス →</a>　<a href="message.html" class="tx-link">代表挨拶 →</a></p>
+      <figure class="company__ph duo">
+        <img src="assets/img/joyo-street.jpg" alt="" loading="lazy">
+        <figcaption class="lbl">Joyo, Kyoto — image</figcaption>
+      </figure>
+    </div>
+    <table class="ctable">
+      <tr><th>Name</th><td>相生設備事務所株式会社</td></tr>
+      <tr><th>Representative</th><td>代表取締役　相生 哲男</td></tr>
+      <tr><th>Address</th><td>〒610-0121 京都府城陽市寺田林ノ口11-309<br><small>JR奈良線「城陽」駅 徒歩約10分</small></td></tr>
+      <tr><th>Established</th><td>2019年2月</td></tr>
+      <tr><th>Capital</th><td>500万円</td></tr>
+      <tr><th>Business</th><td>空気調和設備・換気設備・給排水衛生設備の設計、設計図・施工図の作成</td></tr>
+      <tr><th>Tel / Fax</th><td>TEL 0774-56-6440 ／ FAX 0774-54-3444</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section class="sec careers dark">
+  <div class="sec__head">
+    <span class="lbl">Careers</span>
+  </div>
+  <div class="careers__inner">
+    <h3>集中して働き、<br>きちんと休む。</h3>
+    <div>
+      <div class="careers__rows">
+        <div><b>125日</b><span>年間休日・完全週休2日制</span></div>
+        <div><b>8:45 – 17:45</b><span>就業時間・残業削減は会社方針</span></div>
+        <div><b>転勤なし</b><span>拠点は京都・城陽</span></div>
+      </div>
+      <p class="careers__link"><a href="recruit.html" class="tx-link">CADオペレーター採用情報 →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="sec contact" id="contact">
+  <div class="sec__head">
+    <span class="lbl">Contact</span>
+  </div>
+  <div class="contact__inner">
+    <h3>設計・施工図の<br>ご相談</h3>
+    <div>
+      <p class="tel en">0774-56-6440</p>
+      <p class="tel-sub">FAX 0774-54-3444<br>受付 8:45–17:45（土日祝を除く）</p>
+      <p style="margin-top:16px"><a href="contact.html" class="tx-link">フォームから問い合わせる →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span class="brand__mark en">AIOI<i>.</i></span>
+  <nav>
+    <a href="#systems">SYSTEMS</a>
+    <a href="#process">PROCESS</a>
+    <a href="company.html">COMPANY</a>
+    <a href="recruit.html">CAREERS</a>
+  </nav>
+  <p class="copy">© 2026 AIOI BUILDING SERVICES DESIGN Co., Ltd.<br>本ページは制作提案用のサンプルです。掲載情報は公開情報に基づく仮組みで、正式公開前に貴社確認のうえ修正します。</p>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+<script type="module" src="assets/js/particles.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お問い合わせ｜相生設備事務所株式会社（京都・城陽）</title>
+<meta name="description" content="相生設備事務所株式会社へのお問い合わせ。設計・施工図のご相談、採用に関するご連絡はこちらから。TEL 0774-56-6440（受付 8:45–17:45 土日祝を除く）。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@300;400;500;600;700&family=Shippori+Mincho+B1:wght@700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23242424%27/%3E%3Ctext x=%2716%27 y=%2722%27 font-family=%27Arial Black%27 font-size=%2716%27 font-weight=%27900%27 fill=%27%23f3f0e8%27 text-anchor=%27middle%27%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand__mark en">AIOI<i>.</i></span>
+    <span class="brand__jp">相生設備事務所株式会社</span>
+  </a>
+  <nav class="gnav">
+    <a href="index.html#systems">SYSTEMS</a>
+    <a href="index.html#process">PROCESS</a>
+    <a href="company.html">COMPANY</a>
+    <a href="recruit.html">CAREERS</a>
+    <a href="contact.html" style="background:var(--graphite);color:var(--paper)">CONTACT</a>
+  </nav>
+  <button class="burger" aria-label="メニュー"><span></span><span></span><span></span></button>
+</header>
+
+<!-- ============ ページヘッダー ============ -->
+<section class="page-hero">
+  <span class="lbl">Contact</span>
+  <h1>お問い合わせ</h1>
+  <p>設計・施工図のご相談、採用に関するご連絡は、お電話またはフォームからどうぞ。</p>
+</section>
+
+<!-- ============ 連絡先 + フォーム ============ -->
+<section class="sec contact">
+  <div class="cgrid">
+    <div>
+      <div class="sec__head" style="padding-top:0">
+        <span class="lbl">Tel / Fax</span>
+      </div>
+      <p class="tel en" style="margin-top:18px">0774-56-6440</p>
+      <p class="tel-sub">FAX 0774-54-3444<br>受付 8:45–17:45（土日祝を除く）</p>
+      <div class="pos__list" style="margin-top:34px">
+        <div><b>ADDR</b><span>〒610-0121 京都府城陽市寺田林ノ口11-309</span></div>
+        <div><b>RAIL</b><span>JR奈良線「城陽」駅から徒歩約10分</span></div>
+        <div><b>MAIL</b><span>フォームよりご連絡ください（1〜2営業日以内に返信）</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="sec__head" style="padding-top:0">
+        <span class="lbl">Form</span>
+      </div>
+      <form class="cform" novalidate>
+        <label>お名前<span class="req">必須</span>
+          <input type="text" name="name" autocomplete="name" required>
+        </label>
+        <label>会社名
+          <input type="text" name="company" autocomplete="organization">
+        </label>
+        <label>メールアドレス<span class="req">必須</span>
+          <input type="email" name="email" autocomplete="email" required>
+        </label>
+        <label>お問い合わせ内容<span class="req">必須</span>
+          <textarea name="body" rows="6" required></textarea>
+        </label>
+        <button type="submit">送信する</button>
+        <p class="cform__note" hidden>※ 本ページは制作提案用のサンプルのため、送信機能は接続されていません。正式公開時に接続します。</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span class="brand__mark en">AIOI<i>.</i></span>
+  <nav>
+    <a href="index.html#systems">SYSTEMS</a>
+    <a href="index.html#process">PROCESS</a>
+    <a href="company.html">COMPANY</a>
+    <a href="recruit.html">CAREERS</a>
+  </nav>
+  <p class="copy">© 2026 AIOI BUILDING SERVICES DESIGN Co., Ltd.<br>本ページは制作提案用のサンプルです。掲載情報は公開情報に基づく仮組みで、正式公開前に貴社確認のうえ修正します。</p>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script>
+  /* サンプルのため送信はせず注記を表示（正式公開時にフォームバックエンドへ接続） */
+  document.querySelector('.cform').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.querySelector('.cform__note').hidden = false;
+  });
+</script>
+</body>
+</html>
