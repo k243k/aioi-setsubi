@@ -926,3 +926,15 @@ html.is-opening{overflow:hidden}
   .strip__track{animation:none}
   .opening{display:none}
 }
+
+
+/* =========================================================
+   v7.1 — 実ロゴ導入（Instagramプロフィールの公式ロゴ）
+   ========================================================= */
+.brand__logo{height:32px; width:auto; display:block}
+.site-footer .brand__logo--ft{height:26px}
+.opening__logo{width:clamp(180px,26vw,320px)}
+.opening__logo img{width:100%; height:auto; display:block}
+@media (max-width:760px){
+  .brand__logo{height:28px}
+}
