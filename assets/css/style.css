@@ -439,7 +439,7 @@ img{max-width:100%; display:block}
 /* =========================================================
    スクロールリビール（JS付与 / JS無しでは全表示）
    ========================================================= */
-.reveal{opacity:0; transform:translateY(24px); transition:opacity .85s cubic-bezier(.2,.6,.2,1), transform .85s cubic-bezier(.2,.6,.2,1)}
+.reveal{opacity:0; transform:translateY(36px); transition:opacity 1s cubic-bezier(.2,.6,.2,1), transform 1s cubic-bezier(.2,.6,.2,1)}
 .reveal.in{opacity:1; transform:none}
 .reveal .diagram__wire-h{transform:scaleX(0); transform-origin:left center; transition:transform .8s .5s}
 .reveal .diagram__wire-h.rev{transform-origin:right center}
@@ -937,4 +937,51 @@ html.is-opening{overflow:hidden}
 .opening__logo img{width:100%; height:auto; display:block}
 @media (max-width:760px){
   .brand__logo{height:28px}
+}
+
+
+/* =========================================================
+   v7.2 — モーション全体強化
+   ========================================================= */
+/* 画像アンマスク: reveal中のfigureは下から開き、ズームが収束する */
+.reveal figure,figure.reveal{clip-path:inset(14% 0 0 0); transition:clip-path 1.1s cubic-bezier(.2,.6,.2,1),opacity 1s cubic-bezier(.2,.6,.2,1),transform 1s cubic-bezier(.2,.6,.2,1)}
+.reveal figure img,figure.reveal img{transform:scale(1.1); transition:transform 1.4s cubic-bezier(.2,.6,.2,1)}
+.reveal.in figure,figure.reveal.in{clip-path:inset(0 0 0 0)}
+.reveal.in figure img,figure.reveal.in img{transform:scale(1)}
+/* カードhoverのズームはアンマスク完了後も生かす */
+.syscard:hover img{transform:scale(1.05) !important}
+
+/* opening: ロゴ下のラインスイープ */
+.opening__logo{position:relative}
+.opening__logo::after{
+  content:""; position:absolute; left:0; right:0; bottom:-26px; height:1px;
+  background:var(--steel); transform:scaleX(0); transform-origin:left center;
+  animation:sweep 1s .45s cubic-bezier(.7,0,.2,1) forwards;
+}
+@keyframes sweep{to{transform:scaleX(1)}}
+
+/* ページ遷移: 黒幕スライド */
+.veil{
+  position:fixed; inset:0; z-index:180; background:var(--graphite);
+  transform:translateY(102%); pointer-events:none;
+  transition:transform .46s cubic-bezier(.7,0,.2,1);
+}
+html.is-leaving .veil{transform:translateY(0)}
+@keyframes pagein{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
+body{animation:pagein .6s cubic-bezier(.2,.6,.2,1)}
+
+/* リンク・ボタンの微モーション */
+.hero__links a,.tx-link,.recruit-b__side a{transition:color .25s,border-color .25s,transform .3s cubic-bezier(.2,.6,.2,1)}
+.hero__links a:hover,.tx-link:hover{transform:translateX(4px)}
+.ctaband__btn{transition:background .25s,color .25s,transform .3s,box-shadow .3s}
+.ctaband__btn:hover{transform:translateY(-3px); box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.proc div{transition:padding-left .35s cubic-bezier(.2,.6,.2,1)}
+.proc div:hover{padding-left:16px}
+.gnav a{transition:background .25s,color .25s,letter-spacing .3s}
+.gnav a:hover{letter-spacing:.22em}
+
+@media (prefers-reduced-motion:reduce){
+  .reveal figure,.reveal figure img{clip-path:none; transform:none; transition:none}
+  body{animation:none}
+  .veil{display:none}
 }

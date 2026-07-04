@@ -57,6 +57,28 @@
     counters.forEach(function (el) { cio.observe(el); });
   }
 
+  /* ---- ページ遷移: 黒幕スライドで退場 ---- */
+  (function () {
+    var veil = document.createElement('div');
+    veil.className = 'veil';
+    veil.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(veil);
+    window.addEventListener('pageshow', function () {
+      document.documentElement.classList.remove('is-leaving');
+    });
+    document.addEventListener('click', function (ev) {
+      var a = ev.target.closest && ev.target.closest('a[href]');
+      if (!a) return;
+      var href = a.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || a.target === '_blank') return;
+      if (/^https?:/.test(href) && a.host !== location.host) return;
+      if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      ev.preventDefault();
+      document.documentElement.classList.add('is-leaving');
+      setTimeout(function () { location.href = href; }, 440);
+    });
+  })();
+
   /* ---- ローディング画面: ロゴ表示後にリフトアウト ---- */
   var opening = document.getElementById('opening');
   if (opening) {
@@ -92,7 +114,7 @@
         var r = col.parentElement.getBoundingClientRect();
         var delta = (r.top + r.height / 2) - vh / 2;
         var speed = parseFloat(col.getAttribute('data-speed')) || -0.1;
-        var ty = Math.max(-64, Math.min(64, delta * speed)); /* 見出しへの被り防止 */
+        var ty = Math.max(-110, Math.min(110, delta * speed * 1.8)); /* 見出しへの被り防止 */
         col.style.transform = 'translateY(' + ty.toFixed(1) + 'px)';
       });
     };
