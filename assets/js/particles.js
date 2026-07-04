@@ -288,12 +288,23 @@ function init() {
   group.add(new THREE.Points(geo, mat));
   group.position.set(1.6, 0.3, 0);
   group.scale.setScalar(1.04);
-  if (isMobile) {
-    /* SPは専用ブロック表示（右窓集約が不要）: モデルを視線中心へ寄せて縮小 */
-    group.position.set(-1.7, 0.3, 0);
-    group.scale.setScalar(0.8);
-  }
+  if (isMobile) group.scale.setScalar(0.9);
   scene.add(group);
+
+  /* SPは専用ブロック表示: MEPモデルの実バウンディングへ正対し、
+     キャンバスのアスペクト比からカメラ距離を算出して中央フィットさせる */
+  function fitMobileCamera() {
+    const s = group.scale.x, gx = group.position.x, gy = group.position.y;
+    /* MEP world範囲: x -1.2..9.0 / y -4.25..5.4 / z 0..2.4（raw+3.4済み） */
+    const cx = 3.9 * s + gx, cy = 0.575 * s + gy;
+    const halfW = 5.1 * s + 0.6, halfH = 4.85 * s + 0.4;
+    const tanV = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+    const aspect = W() / Math.max(H(), 1);
+    const dist = Math.max(halfW / (tanV * aspect), halfH / tanV) + 3.2;
+    camera.position.set(cx, cy, dist);
+    camera.lookAt(cx, cy, 0.8);
+  }
+  if (isMobile) fitMobileCamera();
 
   let composer = null;
   try {
@@ -376,5 +387,6 @@ function init() {
     camera.updateProjectionMatrix();
     renderer.setSize(W(), H());
     if (composer) composer.setSize(W(), H());
+    if (isMobile) fitMobileCamera();
   });
 }
